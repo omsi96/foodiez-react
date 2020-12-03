@@ -1,12 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch } from "react-router";
-import FoodCategoriesList from "./components/FoodCategoriesList";
+import FoodCategoriesList from "./components/FoodCategories/FoodCategoriesList";
+import FoodCategoryDetails from "./components/FoodCategories/FoodCategoryDetails";
 
 const Routers = () => {
   return (
     <Switch>
       <Route path="/categories/:categorySlug">
-        <h1>A single category</h1>
+        <FoodCategoryDetails />
       </Route>
       <Route path="/categories">
         <FoodCategoriesList />
