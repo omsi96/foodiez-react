@@ -3,7 +3,12 @@ import "./App.css";
 import Routers from "./Routers";
 
 function App() {
-  return <Routers />;
+  return (
+    <div>
+      NAVBAR
+      <Routers />
+    </div>
+  );
 }
 
 export default App;
