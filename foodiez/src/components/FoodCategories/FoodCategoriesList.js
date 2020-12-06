@@ -16,7 +16,7 @@ const FoodCategoriesList = () => {
       <AddButton />
       <GridWrapper>
         {foodCategoriesStore.foodCategories.map((category) => (
-          <Link to={`/categories/${category.slug}`} key={category.slug}>
+          <Link to={`/categories/${category.id}`} key={category.slug}>
             <FoodCategoryCard category={category} key={category.slug} />
           </Link>
         ))}

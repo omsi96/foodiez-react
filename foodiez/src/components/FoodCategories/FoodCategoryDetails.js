@@ -7,13 +7,12 @@ import { observer } from "mobx-react";
 
 const FoodCategoryDetails = () => {
   const slug = useParams().categorySlug;
-  const category = foodCategoriesStore.data.find(
-    (category) => category.slug === slug
-  );
+  const category = foodCategoriesStore.getCategory(slug);
+
   return (
     <div>
       <h1>{category.name}</h1>
-      <img src={category.image} alt=""></img>
+      <img src={category.image} alt="" />
     </div>
   );
 };

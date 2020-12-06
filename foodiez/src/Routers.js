@@ -2,17 +2,22 @@ import { BrowserRouter } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import FoodCategoriesList from "./components/FoodCategories/FoodCategoriesList";
 import FoodCategoryDetails from "./components/FoodCategories/FoodCategoryDetails";
+import foodCategoriesStore from "./stores/categoryStore";
 
 const Routers = () => {
   return (
     <Switch>
       {/* Food Category Details Page*/}
       <Route path="/categories/:categorySlug">
-        <FoodCategoryDetails />
+        <FoodCategoryDetails
+          foodCategoris={foodCategoriesStore.foodCategoris}
+        />
       </Route>
       {/* Food Categories List Page*/}
       <Route path="/categories">
-        <FoodCategoriesList />
+        <FoodCategoriesList
+          foodCategoris={foodCategoriesStore.foodCategories}
+        />
       </Route>
       {/* Recipes L:ist Page*/}
       <Route path="/recipes">

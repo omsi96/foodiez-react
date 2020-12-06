@@ -4,7 +4,7 @@ import foodCategoriesStore from "../stores/categoryStore";
 
 import { CreateButtonStyled } from "../styles/CreatButtonStyled";
 
-const CategoryModal = ({ isOpen, closeModal }) => {
+const CategoryModal = ({ isOpen, closeModal, createCategory }) => {
   const [category, setCategory] = useState({
     name: "",
     image: "",
@@ -37,7 +37,11 @@ const CategoryModal = ({ isOpen, closeModal }) => {
 
         <div className="form-group">
           <label>Image</label>
-          <input className="form-control" />
+          <input
+            className="form-control"
+            name="image"
+            onChange={handleChange}
+          />
         </div>
         <CreateButtonStyled className="btn float-right">
           Create
