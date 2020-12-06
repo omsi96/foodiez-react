@@ -3,7 +3,7 @@ import foodCategories from "../data/foodCategories";
 
 import axios from "axios";
 const categoryAxios = axios.create({
-  baseURL: "http://localhost:8000/foodcategory/",
+  baseURL: "https://524b02fd554a.ngrok.io/foodcategory/",
 });
 class FoodCategoriesStore {
   foodCategories = foodCategories;
