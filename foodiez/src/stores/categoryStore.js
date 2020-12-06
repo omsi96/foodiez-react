@@ -1,8 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import foodCategories from "../data/foodCategories";
-import slugify from "react";
-// import axios from "axios";
 
+import axios from "axios";
+const categoryAxios = axios.create({
+  baseURL: "http://localhost:8000/foodcategory/",
+});
 class FoodCategoriesStore {
   foodCategories = foodCategories;
 
@@ -10,14 +12,24 @@ class FoodCategoriesStore {
     makeAutoObservable(this);
   }
 
-  createCategory = (category) => {
-    category.id = this.foodCategories[this.foodCategories.length - 1].id + 1;
-    category.slug = slugify(category.name);
-    this.foodCategories.push(category);
+  createCategory = async (category) => {
+    try {
+      await categoryAxios.post("create", category);
+      // success
+      console.log("create category succeeded");
+    } catch (error) {
+      // Fail
+      console.log("Couldn't create any category");
+    }
+  };
+
+  // list categories
+  fetchFoodCategories = async () => {
+    // Yousef part:
   };
 }
 
 const foodCategoriesStore = new FoodCategoriesStore();
 
-// foodCategoriesStore.fetchfoodCategories();
+foodCategoriesStore.fetchFoodCategories();
 export default foodCategoriesStore;
