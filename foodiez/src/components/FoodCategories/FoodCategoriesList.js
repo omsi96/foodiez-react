@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import FoodCategoryCard from "./FoodCategoryCard";
 import foodCategories from "../../data/foodCategories";
 import GridWrapper from "../../styles/GridWrapper";
+import { observer } from "mobx-react";
 
 import AddButton from "../../data/buttons/AddButton";
+import foodCategoriesStore from "../../stores/categoryStore";
 
 const FoodCategoriesList = () => {
   // Remove this when connecting to database
@@ -13,7 +15,7 @@ const FoodCategoriesList = () => {
       <h1>Categories</h1>
       <AddButton />
       <GridWrapper>
-        {foodCategories.map((category) => (
+        {foodCategoriesStore.foodCategories.map((category) => (
           <Link to={`/categories/${category.slug}`} key={category.slug}>
             <FoodCategoryCard category={category} key={category.slug} />
           </Link>
@@ -23,4 +25,4 @@ const FoodCategoriesList = () => {
   );
 };
 
-export default FoodCategoriesList;
+export default observer(FoodCategoriesList);
