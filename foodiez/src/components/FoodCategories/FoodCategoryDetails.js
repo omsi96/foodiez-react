@@ -4,15 +4,18 @@ import { useParams } from "react-router";
 import data from "../../data/foodCategories";
 import foodCategoriesStore from "../../stores/categoryStore";
 import { observer } from "mobx-react";
+import IngredientsList from "./IngredientsList";
 
 const FoodCategoryDetails = () => {
   const slug = useParams().categorySlug;
-  const category = foodCategoriesStore.getCategory(slug);
-
+  const foodCategory = foodCategoriesStore.foodCategories.find(
+    (fc) => fc.slug === slug
+  );
   return (
     <div>
-      <h1>{category.name}</h1>
-      <img src={category.image} alt="" />
+      <h1>{foodCategory.name}</h1>
+      <img src={foodCategory.image} alt="" />
+      <IngredientsList foodCategory={foodCategory} />
     </div>
   );
 };

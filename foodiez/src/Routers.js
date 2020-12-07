@@ -9,9 +9,7 @@ const Routers = () => {
     <Switch>
       {/* Food Category Details Page*/}
       <Route path="/categories/:categorySlug">
-        <FoodCategoryDetails
-          foodCategoris={foodCategoriesStore.foodCategoris}
-        />
+        <FoodCategoryDetails />
       </Route>
       {/* Food Categories List Page*/}
       <Route path="/categories">

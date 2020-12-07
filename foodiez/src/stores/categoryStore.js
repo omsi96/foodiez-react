@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 
 import axios from "axios";
 const categoryAxios = axios.create({
-  baseURL: "https://524b02fd554a.ngrok.io/foodcategory/",
+  baseURL: "https://2b95b01ce854.ngrok.io/foodcategory/",
 });
 class FoodCategoriesStore {
   foodCategories = [];

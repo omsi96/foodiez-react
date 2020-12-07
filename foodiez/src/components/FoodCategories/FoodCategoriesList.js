@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import FoodCategoryCard from "./FoodCategoryCard";
-import foodCategories from "../../data/foodCategories";
+// import foodCategories from "../../data/foodCategories";
 import GridWrapper from "../../styles/GridWrapper";
 import { observer } from "mobx-react";
 
@@ -16,7 +16,7 @@ const FoodCategoriesList = () => {
       <AddButton />
       <GridWrapper>
         {foodCategoriesStore.foodCategories.map((category) => (
-          <Link to={`/categories/${category.id}`} key={category.slug}>
+          <Link to={`/categories/${category.slug}`} key={category.slug}>
             <FoodCategoryCard category={category} key={category.slug} />
           </Link>
         ))}
